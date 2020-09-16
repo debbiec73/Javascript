@@ -95,7 +95,11 @@ const dinosaurs = dinos.map(function(item) {
 console.log(dinosaurs); 
     // Create Human Object - species, weight, height, diet, where, when, fact
 function human() {
-    
+    this.name;
+    this.feet;
+    this.inches;
+    this.weight;
+    this.diet;
 }
     // Use IIFE to get human data from form
 
