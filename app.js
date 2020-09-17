@@ -11,6 +11,30 @@ class dino {
             this.when = when,
             this.fact = fact;
     }
+    heightCompare() {
+        if (this.height > myUser.myInches) {
+            const compare = this.height/myUser.myInches;
+            return (`${this.species} is ${compare} times taller than you`)
+        } else {
+            return (this.species + ' is ' + this.height + ' inches tall')
+        }
+        
+    }
+    weightCompare() {
+        if (this.weight > myUser.myWeight) {
+            const compare = this.weight/myUser.myWeight;
+            return (this.species + ' is ' + compare + ' times heavier than you')
+        } else {
+            return (this.species + ' weighs ' + this.weight + ' lbs')
+        }
+    }
+    dietCompare() {
+        if(this.diet === myUser.myDiet) {
+            return (this.species + ' is a ' + this.diet + ' like you')
+        } else {
+            return (this.species = 'is a ' + this.diet)
+        }
+    }
 };
     // Create Dino Objects
     const dinos = [
@@ -117,14 +141,11 @@ function human(name, feet, inches, weight, diet) {
     // Create Dino Compare Method 1
     // NOTE: Weight in JSON file is in lbs, height in inches. 
 
-    
     // Create Dino Compare Method 2
     // NOTE: Weight in JSON file is in lbs, height in inches.
 
-    
     // Create Dino Compare Method 3
     // NOTE: Weight in JSON file is in lbs, height in inches.
-
 
     // Generate Tiles for each Dino in Array
   
