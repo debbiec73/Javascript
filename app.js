@@ -94,16 +94,26 @@ const dinosaurs = dinos.map(function(item) {
 });
 console.log(dinosaurs); 
     // Create Human Object - species, weight, height, diet, where, when, fact
-function human() {
-    this.name;
-    this.feet;
-    this.inches;
-    this.weight;
-    this.diet;
+function human(name, feet, inches, weight, diet) {
+    this.name = name;
+    this.inches = inches;
+    this.weight = weight;
+    this.diet = diet;
 }
     // Use IIFE to get human data from form
-
-
+    // const myUser ={};
+    const button = document.getElementById('btn');
+    button.addEventListener('click', (function() {
+        const myName = document.getElementById('name').value;
+        const myFeet = document.getElementById('feet').value;
+        const myInches = parseInt(document.getElementById('inches').value) + myFeet*12;
+        const myWeight = document.getElementById('weight').value;
+        const myDiet = document.getElementById('diet').value;
+        myUser = new human(myName, myFeet, myInches, myWeight, myDiet);
+        console.log(myName);
+        console.log(myUser);
+    }));
+    
     // Create Dino Compare Method 1
     // NOTE: Weight in JSON file is in lbs, height in inches. 
 
