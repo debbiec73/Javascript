@@ -138,7 +138,8 @@ function human(name, feet, inches, weight, diet) {
         myUser = new human(myName, myFeet, myInches, myWeight, myDiet);
         console.log(myName);
         console.log(myUser);
-    // Generate Tiles for each Dino in Array
+    
+        // Generate Tiles for each Dino in Array
     console.log(dinosaurs);
   const newArray = dinosaurs.map(function(item) {
   if (item.species === 'Pigeon') { 
