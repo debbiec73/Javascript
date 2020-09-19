@@ -117,9 +117,11 @@ const dinosaurs = dinos.map(function(item) {
     return item;
 });
 console.log(dinosaurs); 
+
     // Create Human Object - species, weight, height, diet, where, when, fact
 function human(name, feet, inches, weight, diet) {
     this.name = name;
+    this.feet = feet;
     this.inches = inches;
     this.weight = weight;
     this.diet = diet;
@@ -136,50 +138,48 @@ function human(name, feet, inches, weight, diet) {
         myUser = new human(myName, myFeet, myInches, myWeight, myDiet);
         console.log(myName);
         console.log(myUser);
+    // Generate Tiles for each Dino in Array
+    console.log(dinosaurs);
+  const newArray = dinosaurs.map(function(item) {
+  if (item.species === 'Pigeon') { 
+      return item;}
+  else {
+        let count = Math.floor(Math.random() * 6);
+        console.log(count);
+        //let count = 3
+        switch(count) {
+        case 0: item.fact = item.weightCompare();
+        return item;
+        case 1: item.fact = item.heightCompare();
+        return item;
+        case 2: item.fact = item.dietCompare();
+        return item;
+        case 3: item.fact = item.where;
+        return item;
+        case 4: item.fact = item.when;
+        return item;
+        case 5: item.fact = item.fact;
+return item;
+  }};
+  
+});
+console.log(newArray);
     }));
-    
-    // Create Dino Compare Method 1
-    // NOTE: Weight in JSON file is in lbs, height in inches. 
+  const dinoss = [1,2,3,4,5,6,7,8];
+const hum = 'h';
+const result = [];
+for (let i = 0; i < 4; i++) {
+  result.push(dinoss[i]);
+}
+result.push(hum);
+for (let i = 4; i < 8; i++) {
+  result.push(dinoss[i]);
+}
 
-    // Create Dino Compare Method 2
-    // NOTE: Weight in JSON file is in lbs, height in inches.
+const result2 = dinoss.slice(0,4).concat([hum]).concat(dinoss.slice(4,8))
+console.log(result);
+console.log(result2);
 
-    // Create Dino Compare Method 3
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-    // Generate Tiles for each Dino in Array
-  
-        // Add tiles to DOM
-
-    // Remove form from screen
-
-
-// On button click, prepare and display infographic
- // Create Dino Constructor
-
-
-    // Create Dino Objects
-
-
-    // Create Human Object
-
-    // Use IIFE to get human data from form
-
-
-    // Create Dino Compare Method 1
-    // NOTE: Weight in JSON file is in lbs, height in inches. 
-
-    
-    // Create Dino Compare Method 2
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-    
-    // Create Dino Compare Method 3
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-
-    // Generate Tiles for each Dino in Array
-  
         // Add tiles to DOM
 
     // Remove form from screen
