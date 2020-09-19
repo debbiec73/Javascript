@@ -130,6 +130,8 @@ function human(name, feet, inches, weight, diet) {
     // const myUser ={};
     const button = document.getElementById('btn');
     button.addEventListener('click', (function() {
+        const form = document.getElementById('dino-compare');
+        form.setAttribute('hidden', '');
         const myName = document.getElementById('name').value;
         const myFeet = document.getElementById('feet').value;
         const myInches = parseInt(document.getElementById('inches').value) + myFeet*12;
@@ -165,22 +167,23 @@ return item;
   
 });
 console.log(newArray);
-    }));
-  const dinoss = [1,2,3,4,5,6,7,8];
-const hum = 'h';
 const result = [];
 for (let i = 0; i < 4; i++) {
-  result.push(dinoss[i]);
+  result.push(newArray[i]);
 }
-result.push(hum);
+result.push(myUser);
 for (let i = 4; i < 8; i++) {
-  result.push(dinoss[i]);
+  result.push(newArray[i]);
 }
 
-const result2 = dinoss.slice(0,4).concat([hum]).concat(dinoss.slice(4,8))
+const result2 = newArray.slice(0,4).concat([myUser]).concat(newArray.slice(4,8))
 console.log(result);
 console.log(result2);
 
+    }));
+  //const tiles = result.map(function() {
+
+  //});
         // Add tiles to DOM
 
     // Remove form from screen
