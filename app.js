@@ -2,7 +2,7 @@
    
     // Create Dino Constructor
 class dino {
-    constructor(species, weight, height, diet, where, when, fact) {
+    constructor(species, weight, height, diet, where, when, fact, image) {
         this.species = species,
             this.weight = weight,
             this.height = height,
@@ -10,10 +10,11 @@ class dino {
             this.where = where,
             this.when = when,
             this.fact = fact;
+            this.image = image;
     }
     heightCompare() {
-        if (this.height > myUser.myInches) {
-            const compare = this.height/myUser.myInches;
+        if (this.height > myUser.inches) {
+            const compare = this.height - myUser.inches;
             return (`${this.species} is ${compare} times taller than you`)
         } else {
             return (this.species + ' is ' + this.height + ' inches tall')
@@ -21,18 +22,18 @@ class dino {
         
     }
     weightCompare() {
-        if (this.weight > myUser.myWeight) {
-            const compare = this.weight/myUser.myWeight;
+        if (this.weight > myUser.weight) {
+            const compare = this.weight/myUser.weight;
             return (this.species + ' is ' + compare + ' times heavier than you')
         } else {
             return (this.species + ' weighs ' + this.weight + ' lbs')
         }
     }
     dietCompare() {
-        if(this.diet === myUser.myDiet) {
+        if(this.diet === myUser.diet) {
             return (this.species + ' is a ' + this.diet + ' like you')
         } else {
-            return (this.species = 'is a ' + this.diet)
+            return (this.species + ' is a ' + this.diet)
         }
     }
 };
@@ -113,18 +114,19 @@ class dino {
         ]
 
 const dinosaurs = dinos.map(function(item) {
-    item = new dino(item.species, item.weight, item.height, item.diet, item.where, item.when, item.fact);
+    item = new dino(item.species, item.weight, item.height, item.diet, item.where, item.when, item.fact, item.image);
     return item;
 });
 console.log(dinosaurs); 
 
     // Create Human Object - species, weight, height, diet, where, when, fact
-function human(name, feet, inches, weight, diet) {
+function human(name, feet, inches, weight, diet, image) {
     this.name = name;
     this.feet = feet;
     this.inches = inches;
     this.weight = weight;
     this.diet = diet;
+    this.image = image;
 }
     // Use IIFE to get human data from form
     // const myUser ={};
@@ -137,7 +139,8 @@ function human(name, feet, inches, weight, diet) {
         const myInches = parseInt(document.getElementById('inches').value) + myFeet*12;
         const myWeight = document.getElementById('weight').value;
         const myDiet = document.getElementById('diet').value;
-        myUser = new human(myName, myFeet, myInches, myWeight, myDiet);
+        const myImage = " ";
+        myUser = new human(myName, myFeet, myInches, myWeight, myDiet, myImage);
         console.log(myName);
         console.log(myUser);
     
@@ -179,11 +182,60 @@ for (let i = 4; i < 8; i++) {
 const result2 = newArray.slice(0,4).concat([myUser]).concat(newArray.slice(4,8))
 console.log(result);
 console.log(result2);
+var grid = document.getElementById('grid');
+var div = document.createElement("div");
+var name = document.createElement("h3");
+var image = document.createElement('img');
+var fact = document.createElement("p");
 
+const tiles = result.map(function(item) {
+    name = item.species;
+    fact = item.fact;
+    
+        
+        switch(name) {
+            case 'Anklyosaurus': item.image = "anklyosaurus.png";
+            return item;
+            case 'Brachiosaurus': item.image = "brachiosaurus.png";
+            return item;
+            case 'Elasmosaurus': item.image = "elasmosaurus.png";
+            return item;
+            case 'Pigeon': item.image = "pigeon.png";
+            return item;
+            case 'Pteranodon': item.image = "pteranodon.png";
+            return item;
+            case 'Stegosaurus': item.image = "stegosaurus.png";
+            return item;
+            case 'Triceratops': item.image = "triceratops.png";
+            return item;
+            case 'Tyrannosaurus Rex': item.image = "tyrannosaurus rex.png";
+            return item;
+            default: item.image = "human.png"
+            return item;
+        }
+        console.log(name);
+        console.log(image);
+    }
+    
+//name.classList.add('grid-item_h3');
+//image.classList.add('grid-item_img');
+//fact.classList.add('grid-item_p');
+
+//div.appendChild(name, image, fact);
+        //grid.appendChild(div);
+
+
+
+       //className = "grid-item"
+       //className = "grid-item img"
+       //className = "grid-item h3"
+       //className = "grid-item p"
+       //speciesName.append();
+    
+);
+console.log(tiles);
     }));
-  //const tiles = result.map(function() {
-
-  //});
+  
         // Add tiles to DOM
 
     // Remove form from screen
