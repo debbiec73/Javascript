@@ -138,16 +138,13 @@ function human(name, feet, inches, weight, diet, image) {
         const myDiet = document.getElementById('diet').value;
         const myImage = " ";
         myUser = new human(myName, myFeet, myInches, myWeight, myDiet, myImage);
-        console.log(myName);
-        console.log(myUser);
-    
        
+     
   const newArray = dinosaurs.map(function(item) {
   if (item.species === 'Pigeon') { 
       return item;}
   else {
         let count = Math.floor(Math.random() * 6);
-        console.log(count);
         switch(count) {
         case 0: item.fact = item.weightCompare();
         return item;
