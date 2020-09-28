@@ -1,6 +1,6 @@
 
    
-    // Create Dino Constructor
+    
 class dino {
     constructor(species, weight, height, diet, where, when, fact, image) {
         this.species = species,
@@ -37,7 +37,7 @@ class dino {
         }
     }
 };
-    // Create Dino Objects
+   
     const dinos = [
             {
                 "species": "Triceratops",
@@ -117,9 +117,7 @@ const dinosaurs = dinos.map(function(item) {
     item = new dino(item.species, item.weight, item.height, item.diet, item.where, item.when, item.fact, item.image);
     return item;
 });
-console.log(dinosaurs); 
 
-    // Create Human Object - species, weight, height, diet, where, when, fact
 function human(name, feet, inches, weight, diet, image) {
     this.name = name;
     this.feet = feet;
@@ -128,8 +126,7 @@ function human(name, feet, inches, weight, diet, image) {
     this.diet = diet;
     this.image = image;
 }
-    // Use IIFE to get human data from form
-    // const myUser ={};
+
     const button = document.getElementById('btn');
     button.addEventListener('click', (function() {
         const form = document.getElementById('dino-compare');
@@ -144,15 +141,13 @@ function human(name, feet, inches, weight, diet, image) {
         console.log(myName);
         console.log(myUser);
     
-        // Generate Tiles for each Dino in Array
-    console.log(dinosaurs);
+       
   const newArray = dinosaurs.map(function(item) {
   if (item.species === 'Pigeon') { 
       return item;}
   else {
         let count = Math.floor(Math.random() * 6);
         console.log(count);
-        //let count = 3
         switch(count) {
         case 0: item.fact = item.weightCompare();
         return item;
@@ -169,7 +164,6 @@ return item;
   }};
   
 });
-console.log(newArray);
 const result = [];
 for (let i = 0; i < 4; i++) {
   result.push(newArray[i]);
@@ -179,66 +173,121 @@ for (let i = 4; i < 8; i++) {
   result.push(newArray[i]);
 }
 
-const result2 = newArray.slice(0,4).concat([myUser]).concat(newArray.slice(4,8))
-console.log(result);
-console.log(result2);
-var grid = document.getElementById('grid');
-var div = document.createElement("div");
-var name = document.createElement("h3");
-var image = document.createElement('img');
-var fact = document.createElement("p");
+function createDisplayName(name) {
+    const displayName = document.createElement("h3");
+    const displayNameText = document.createTextNode(name);
+    displayName.className += "h3";
+    displayName.appendChild(displayNameText);
+    return displayName;
+}
+
+function createDisplayImage(image) {
+    var displayImage = document.createElement("img");
+    displayImage.src = image;
+    displayImage.className += "img";
+    return displayImage;
+}
+
+function createDisplayFact(fact) {
+    const displayFact = document.createElement("p");
+    const displayFactText = document.createTextNode(fact);
+    displayFact.className += "p";
+    displayFact.appendChild(displayFactText);
+    return displayFact;
+}
+
+function createGridItem(displayName, displayImage, displayFact) {
+    var gridItem = document.createElement('div');
+    gridItem.appendChild(displayName);
+    gridItem.appendChild(displayImage);
+    gridItem.appendChild(displayFact);
+    gridItem.className += 'grid-item';
+    grid.appendChild(gridItem);
+    return gridItem;
+}
+
+function createHumanGridItem(displayName, displayImage) {
+    var gridItem = document.createElement('div');
+    gridItem.appendChild(displayName);
+    gridItem.appendChild(displayImage);
+    gridItem.className += 'grid-item';
+    grid.appendChild(gridItem);
+    return gridItem;
+}
 
 const tiles = result.map(function(item) {
-    name = item.species;
-    fact = item.fact;
     
-        
+    var grid = document.getElementById('grid');
+        name = item.species
+        image = item.image
+        fact = item.fact
+       
         switch(name) {
-            case 'Anklyosaurus': item.image = "anklyosaurus.png";
+            
+            case 'Anklyosaurus': image = 'images/anklyosaurus.png'
+               
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Brachiosaurus': item.image = "brachiosaurus.png";
+
+            case 'Brachiosaurus': image = 'images/brachiosaurus.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Elasmosaurus': item.image = "elasmosaurus.png";
+
+            case 'Elasmosaurus': image = 'images/elasmosaurus.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Pigeon': item.image = "pigeon.png";
+
+            case 'Pigeon': image = 'images/pigeon.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Pteranodon': item.image = "pteranodon.png";
+
+            case 'Pteranodon': image = 'images/pteranodon.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Stegosaurus': item.image = "stegosaurus.png";
+
+            case 'Stegosaurus': image = 'images/stegosaurus.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Triceratops': item.image = "triceratops.png";
+
+            case 'Triceratops': image = 'images/triceratops.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            case 'Tyrannosaurus Rex': item.image = "tyrannosaurus rex.png";
+
+            case 'Tyrannosaurus Rex': image = 'images/tyrannosaurus rex.png';
+            displayName = createDisplayName(name);
+            displayImage = createDisplayImage(image);
+            displayFact = createDisplayFact(fact);
+            gridItem = createGridItem(displayName, displayImage, displayFact);
             return item;
-            default: item.image = "human.png"
+
+            default: image = 'images/human.png';
+            displayName = createDisplayName(item.name);
+            displayImage = createDisplayImage(image);
+            gridItem = createHumanGridItem(displayName, displayImage);
             return item;
         }
-        console.log(name);
-        console.log(image);
-    }
     
-//name.classList.add('grid-item_h3');
-//image.classList.add('grid-item_img');
-//fact.classList.add('grid-item_p');
-
-//div.appendChild(name, image, fact);
-        //grid.appendChild(div);
-
-
-
-       //className = "grid-item"
-       //className = "grid-item img"
-       //className = "grid-item h3"
-       //className = "grid-item p"
-       //speciesName.append();
-    
-);
-console.log(tiles);
+    })
     }));
   
-        // Add tiles to DOM
-
-    // Remove form from screen
-
-
-// On button click, prepare and display infographic
